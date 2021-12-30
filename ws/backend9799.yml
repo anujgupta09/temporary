@@ -3,19 +3,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-  name: deployment-backend9799
+  name: argo-deployment-backend9799
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: backend9799
+      app: argo-backend9799
   template:
     metadata:
       labels:
-        app: backend9799
+        app: argo-backend9799
     spec:
       containers:
-      - name: backend9799
+      - name: argo-backend9799
         image: 302315242071.dkr.ecr.ap-south-1.amazonaws.com/lineupxbackend9799:{{ .Values.IMAGE_VERSION }}
         ports:
         - containerPort: 3000
@@ -23,11 +23,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-backend9799
+  name: argo-service-backend9799
 spec:
   type: NodePort
   selector:
-    app: backend9799
+    app: argo-backend9799
   ports:
     - port: 3000
       targetPort: 3000
@@ -36,19 +36,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-  name: deployment-httpd
+  name: argo-deployment-httpd
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: httpd
+      app: argo-httpd
   template:
     metadata:
       labels:
-        app: httpd
+        app: argo-httpd
     spec:
       containers:
-      - name: httpd
+      - name: argo-httpd
         image: httpd
         ports:
         - containerPort: 80
@@ -56,11 +56,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-httpd
+  name: argo-service-httpd
 spec:
   type: NodePort
   selector:
-    app: httpd
+    app: argo-httpd
   ports:
     - port: 80
       targetPort: 80
