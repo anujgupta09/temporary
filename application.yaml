@@ -2,10 +2,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myargo
+  name: 9799-lineupx
   namespace: argocd
 spec:
-  project: default
+  project: 9799-lineupx-argocd-project
   source:
     repoURL: https://github.com/anujgupta09/temporary.git
     targetRevision: HEAD
@@ -16,9 +16,9 @@ spec:
 
   syncPolicy:
     syncOptions:
-    - CreateNameSpace=true
+    - CreateNameSpace = true
 
     automated:
       selfHeal: true
       prune: true
-
+ 
