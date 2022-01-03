@@ -5,7 +5,7 @@ metadata:
   labels:
   name: deployment-backend9799
 spec:
-  replicas: 14
+  replicas: 1
   selector:
     matchLabels:
       app: backend9799
@@ -38,7 +38,7 @@ metadata:
   labels:
   name: deployment-httpd
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: httpd
