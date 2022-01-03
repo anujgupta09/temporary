@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend9799
-        image: 302315242071.dkr.ecr.ap-south-1.amazonaws.com/lineupxbackend9799:v4000
+        image: 302315242071.dkr.ecr.ap-south-1.amazonaws.com/lineupxbackend9799:v4
         ports:
         - containerPort: 3000
 ---
