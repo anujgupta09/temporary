@@ -5,14 +5,14 @@ metadata:
   name: argo-9799-lineupx
   namespace: argocd
 spec:
-  project: 9799-lineupx-argocd-project
+  project: default
   source:
     repoURL: https://github.com/anujgupta09/temporary.git
     targetRevision: HEAD
     path: ws
   destination:
     server: https://kubernetes.default.svc
-    namespace: 9799-lineupx
+    namespace: default
 
   syncPolicy:
     syncOptions:
