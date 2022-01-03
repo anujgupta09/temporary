@@ -1,7 +1,14 @@
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: 9799-lineupx
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: 9799-lineupx
   labels:
   name: deployment-backend9799
 spec:
@@ -11,6 +18,7 @@ spec:
       app: backend9799
   template:
     metadata:
+      namespace: 9799-lineupx
       labels:
         app: backend9799
     spec:
@@ -23,6 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: 9799-lineupx
   name: service-backend9799
 spec:
   type: NodePort
@@ -35,6 +44,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: 9799-lineupx
   labels:
   name: deployment-httpd
 spec:
@@ -44,6 +54,7 @@ spec:
       app: httpd
   template:
     metadata:
+      namespace: 9799-lineupx
       labels:
         app: httpd
     spec:
@@ -56,6 +67,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: 9799-lineupx
   name: service-httpd
 spec:
   type: NodePort
