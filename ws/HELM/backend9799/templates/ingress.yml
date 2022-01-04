@@ -1,0 +1,36 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-backend9799
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    #alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-2:302315242071:certificate/eb84e36e-7eb6-40b1-a6ec-d5d6e0903307  
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:302315242071:certificate/5d84761b-889f-4ea6-a92a-915fd1b44f8f
+    alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+spec:
+  rules:
+  - http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: ssl-redirect
+              servicePort: use-annotation
+  - host: app2.lineupx.com
+    http:
+        paths:
+          - path: /
+            backend:
+              serviceName: service-httpd
+              servicePort: 80
+  - host: api.lineupx.com
+    http:
+        paths:
+          - path: /api/*
+            backend:
+              serviceName: service-backend9799
+              servicePort: 3000
+---
