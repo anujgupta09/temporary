@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  namespace: Production
+  namespace: production
   name: ingress-backend9799
   annotations:
     kubernetes.io/ingress.class: alb
