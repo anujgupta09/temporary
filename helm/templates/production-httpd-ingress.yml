@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  namespace: production
+  namespace: production-httpd
   name: ingress-backend9799
   annotations:
     kubernetes.io/ingress.class: alb
@@ -26,11 +26,4 @@ spec:
             backend:
               serviceName: service-httpd
               servicePort: 80
-  - host: api.lineupx.com
-    http:
-        paths:
-          - path: /api/*
-            backend:
-              serviceName: service-backend9799
-              servicePort: 3000
 ---
