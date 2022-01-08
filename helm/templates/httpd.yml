@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: production-httpd
+  name: production
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: production-httpd
+  namespace: production
   labels:
   name: deployment-httpd
 spec:
@@ -17,7 +17,7 @@ spec:
       app: httpd
   template:
     metadata:
-      namespace: production-httpd
+      namespace: production
       labels:
         app: httpd
     spec:
@@ -30,7 +30,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: production-httpd
+  namespace: production
   name: service-httpd
 spec:
   type: NodePort
