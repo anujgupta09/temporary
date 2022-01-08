@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: production
+  name: production-backend
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: production
+  namespace: production-backend
   labels:
   name: deployment-backend9799
 spec:
@@ -17,7 +17,7 @@ spec:
       app: backend9799
   template:
     metadata:
-      namespace: production
+      namespace: production-backend
       labels:
         app: backend9799
     spec:
@@ -30,7 +30,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: production
+  namespace: production-backend
   name: service-backend9799
 spec:
   type: NodePort
