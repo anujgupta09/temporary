@@ -19,6 +19,13 @@ spec:
             backend:
               serviceName: ssl-redirect
               servicePort: use-annotation
+  - host: app2.lineupx.com
+    http:
+        paths:
+          - path: /
+            backend:
+              serviceName: service-httpd
+              servicePort: 80
   - host: api.lineupx.com
     http:
         paths:
