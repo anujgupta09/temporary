@@ -22,7 +22,7 @@ spec:
   - host: app2.lineupx.com
     http:
         paths:
-          - path: /app2/*
+          - path: /*
             backend:
               serviceName: service-httpd
               servicePort: 80
