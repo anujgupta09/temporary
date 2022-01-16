@@ -29,7 +29,7 @@ spec:
   - host: api.lineupx.com
     http:
         paths:
-          - path: /*
+          - path: /v1/*
             backend:
               serviceName: service-backend9799
               servicePort: 3000
